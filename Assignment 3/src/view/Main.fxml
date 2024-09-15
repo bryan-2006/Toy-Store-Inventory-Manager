@@ -1,0 +1,565 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxWidth="1920.0" prefHeight="760.0" prefWidth="1315.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Management">
+   <center>
+      <TabPane prefHeight="1080.0" prefWidth="1920.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+        <tabs>
+            <Tab text="Home">
+               <content>
+                  <AnchorPane prefHeight="728.0" prefWidth="1250.0">
+                     <children>
+                        <Label alignment="CENTER" layoutX="1.0" layoutY="3.0" prefHeight="41.0" prefWidth="1280.0" text="Welcome to Toy Store Company">
+                           <font>
+                              <Font size="21.0" />
+                           </font>
+                        </Label>
+                        <ListView fx:id="list" layoutX="347.0" layoutY="55.0" prefHeight="542.0" prefWidth="908.0" style="-fx-background-color: white;" />
+                        <Button fx:id="buyBtn" layoutX="347.0" layoutY="610.0" mnemonicParsing="false" onAction="#buy" prefHeight="25.0" prefWidth="908.0" text="Buy" />
+                        <Label layoutX="21.0" layoutY="57.0" prefHeight="42.0" prefWidth="304.0" text="Search Inventory: ">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </Label>
+                        <HBox alignment="CENTER" layoutX="21.0" layoutY="116.0" prefHeight="45.0" prefWidth="299.0">
+                           <children>
+                              <RadioButton fx:id="snRadio" mnemonicParsing="false" onAction="#radioClick" text="Serial Number">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="findWith" />
+                                 </toggleGroup>
+                              </RadioButton>
+                              <Label text="       " />
+                              <RadioButton fx:id="nameRadio" mnemonicParsing="false" onAction="#radioClick" text="Name" toggleGroup="$findWith">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </RadioButton>
+                              <Label text="       " />
+                              <RadioButton fx:id="typeRadio" mnemonicParsing="false" onAction="#radioClick" text="Type" toggleGroup="$findWith">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </RadioButton>
+                           </children>
+                        </HBox>
+                        <HBox layoutX="21.0" layoutY="215.0" prefHeight="124.0" prefWidth="299.0">
+                           <children>
+                              <VBox prefHeight="382.0" prefWidth="149.0">
+                                 <children>
+                                    <Label fx:id="snLbl" text="Serial Number">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <Label text="       " />
+                                    <Label fx:id="nameLbl" text="Name">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <Label text="       " />
+                                    <Label fx:id="typeLbl" text="Type">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <VBox prefHeight="415.0" prefWidth="151.0">
+                                 <children>
+                                    <TextField fx:id="snField" prefHeight="13.0" prefWidth="151.0" />
+                                    <Label text="       ">
+                                       <font>
+                                          <Font size="9.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="nameField" />
+                                    <Label text="       ">
+                                       <font>
+                                          <Font size="9.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="typeField" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" layoutX="24.0" layoutY="370.0" prefHeight="87.0" prefWidth="297.0">
+                           <children>
+                              <Button fx:id="clearBtn" mnemonicParsing="false" onAction="#clear" text="Clear" />
+                              <Label text="       ">
+                                 <font>
+                                    <Font size="2.0" />
+                                 </font>
+                              </Label>
+                              <Button fx:id="searchBtn" mnemonicParsing="false" onAction="#search" text="Search" />
+                           </children>
+                        </HBox>
+                        <Separator layoutX="-25.0" layoutY="43.0" prefHeight="0.0" prefWidth="1403.0" />
+                        <Separator layoutX="24.0" layoutY="175.0" prefHeight="25.0" prefWidth="297.0" />
+                        <Separator layoutX="20.0" layoutY="331.0" prefHeight="45.0" prefWidth="299.0" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+          <Tab text="Add Toy">
+               <content>
+                  <AnchorPane prefHeight="728.0" prefWidth="1250.0">
+                     <children>
+                        <Label layoutX="21.0" layoutY="57.0" prefHeight="42.0" prefWidth="304.0" text="Enter New Toy Information:">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </Label>
+                        <HBox layoutX="21.0" layoutY="134.0" prefHeight="205.0" prefWidth="299.0">
+                           <children>
+                              <VBox prefHeight="382.0" prefWidth="149.0">
+                                 <children>
+                                    <Label text="Serial Number">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <Label text="       " />
+                                    <Label text="Name">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <Label text="       " />
+                                    <Label text="Brand">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <Label text="       " />
+                                    <Label text="Price">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <Label prefHeight="27.0" prefWidth="23.0" text="       " />
+                                    <Label text="Available Count">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <Label text="       " />
+                                    <Label text="Age Appropriate">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <VBox prefHeight="415.0" prefWidth="151.0">
+                                 <children>
+                                    <TextField fx:id="snNewToy" prefHeight="13.0" prefWidth="151.0">
+                                       <font>
+                                          <Font size="11.0" />
+                                       </font></TextField>
+                                    <Label text="       ">
+                                       <font>
+                                          <Font size="10.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="nameNewToy">
+                                       <font>
+                                          <Font size="11.0" />
+                                       </font></TextField>
+                                    <Label text="       ">
+                                       <font>
+                                          <Font size="10.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="brandNewToy">
+                                       <font>
+                                          <Font size="11.0" />
+                                       </font></TextField>
+                                    <Label text="       ">
+                                       <font>
+                                          <Font size="10.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="priceNewToy">
+                                       <font>
+                                          <Font size="11.0" />
+                                       </font>
+                                    </TextField>
+                                    <Label text="       ">
+                                       <font>
+                                          <Font size="10.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="availableNewToy">
+                                       <font>
+                                          <Font size="11.0" />
+                                       </font>
+                                    </TextField>
+                                    <Label text="       ">
+                                       <font>
+                                          <Font size="10.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="ageNewToy">
+                                       <font>
+                                          <Font size="11.0" />
+                                       </font>
+                                    </TextField>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" layoutX="24.0" layoutY="410.0" prefHeight="61.0" prefWidth="297.0">
+                           <children>
+                              <Label text="       ">
+                                 <font>
+                                    <Font size="2.0" />
+                                 </font>
+                              </Label>
+                              <Button fx:id="saveBtn" mnemonicParsing="false" onAction="#save" prefHeight="60.0" prefWidth="105.0" text="Save" />
+                           </children>
+                        </HBox>
+                        <Separator layoutX="24.0" layoutY="100.0" prefHeight="25.0" prefWidth="297.0" />
+                        <Separator layoutX="789.0" layoutY="-4.0" orientation="VERTICAL" prefHeight="809.0" prefWidth="90.0" />
+                        <Separator layoutX="380.0" layoutY="309.0" prefHeight="45.0" prefWidth="953.0" />
+                        <Separator layoutX="375.0" layoutY="-5.0" orientation="VERTICAL" prefHeight="761.0" prefWidth="15.0" />
+                        <Label alignment="CENTER" layoutX="380.0" layoutY="69.0" prefHeight="21.0" prefWidth="454.0" text="Figure">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="381.0" layoutY="417.0" prefHeight="0.0" prefWidth="452.0" text="Puzzle">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="835.0" layoutY="419.0" prefHeight="21.0" prefWidth="439.0" text="Board Game">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="833.0" layoutY="69.0" prefHeight="3.0" prefWidth="440.0" text="Animal">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <Separator layoutX="507.0" layoutY="97.0" prefWidth="200.0" />
+                        <Separator layoutX="955.0" layoutY="96.0" prefWidth="200.0" />
+                        <Separator layoutX="507.0" layoutY="442.0" prefHeight="11.0" prefWidth="200.0" />
+                        <Separator layoutX="955.0" layoutY="446.0" prefHeight="11.0" prefWidth="200.0" />
+                        <HBox layoutX="460.0" layoutY="110.0" prefHeight="221.0" prefWidth="299.0">
+                           <children>
+                              <VBox prefHeight="382.0" prefWidth="149.0">
+                                 <children>
+                                    <Label text="Classification">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <Label text="       " />
+                                    <Label text="       " />
+                                    <Label text="       " />
+                                    <Label prefHeight="27.0" prefWidth="23.0" text="       " />
+                                    <Label text="       " />
+                                 </children>
+                              </VBox>
+                              <VBox prefHeight="415.0" prefWidth="151.0">
+                                 <children>
+                                    <TextField fx:id="classification" prefHeight="13.0" prefWidth="151.0">
+                                       <font>
+                                          <Font size="11.0" />
+                                       </font>
+                                    </TextField>
+                                    <Label text="       ">
+                                       <font>
+                                          <Font size="10.0" />
+                                       </font>
+                                    </Label>
+                                    <Label text="       ">
+                                       <font>
+                                          <Font size="10.0" />
+                                       </font>
+                                    </Label>
+                                    <Label text="       ">
+                                       <font>
+                                          <Font size="10.0" />
+                                       </font>
+                                    </Label>
+                                    <Label text="       ">
+                                       <font>
+                                          <Font size="10.0" />
+                                       </font>
+                                    </Label>
+                                    <Label text="       ">
+                                       <font>
+                                          <Font size="10.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <HBox alignment="TOP_CENTER" layoutX="833.0" layoutY="110.0" prefHeight="221.0" prefWidth="440.0">
+                           <children>
+                              <VBox prefHeight="382.0" prefWidth="149.0">
+                                 <children>
+                                    <Label text="Material">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <Label text="       " />
+                                    <Label text="Size">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <Label text="       " />
+                                    <Label text="       " />
+                                    <Label prefHeight="27.0" prefWidth="23.0" text="       " />
+                                    <Label text="       " />
+                                 </children>
+                              </VBox>
+                              <VBox prefHeight="415.0" prefWidth="151.0">
+                                 <children>
+                                    <TextField fx:id="material" prefHeight="13.0" prefWidth="151.0">
+                                       <font>
+                                          <Font size="11.0" />
+                                       </font>
+                                    </TextField>
+                                    <Label text="       ">
+                                       <font>
+                                          <Font size="10.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="size">
+                                       <font>
+                                          <Font size="11.0" />
+                                       </font>
+                                    </TextField>
+                                    <Label text="       ">
+                                       <font>
+                                          <Font size="10.0" />
+                                       </font>
+                                    </Label>
+                                    <Label text="       ">
+                                       <font>
+                                          <Font size="10.0" />
+                                       </font>
+                                    </Label>
+                                    <Label text="       ">
+                                       <font>
+                                          <Font size="10.0" />
+                                       </font>
+                                    </Label>
+                                    <Label text="       ">
+                                       <font>
+                                          <Font size="10.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <HBox layoutX="460.0" layoutY="458.0" prefHeight="263.0" prefWidth="299.0">
+                           <children>
+                              <VBox prefHeight="382.0" prefWidth="149.0">
+                                 <children>
+                                    <Label text="Type">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <Label text="       " />
+                                    <Label text="       " />
+                                    <Label prefHeight="27.0" prefWidth="23.0" text="       " />
+                                    <Label text="       " />
+                                 </children>
+                              </VBox>
+                              <VBox prefHeight="415.0" prefWidth="151.0">
+                                 <children>
+                                    <TextField fx:id="type" prefHeight="13.0" prefWidth="151.0">
+                                       <font>
+                                          <Font size="11.0" />
+                                       </font>
+                                    </TextField>
+                                    <Label text="       ">
+                                       <font>
+                                          <Font size="10.0" />
+                                       </font>
+                                    </Label>
+                                    <Label text="       ">
+                                       <font>
+                                          <Font size="10.0" />
+                                       </font>
+                                    </Label>
+                                    <Label text="       ">
+                                       <font>
+                                          <Font size="10.0" />
+                                       </font>
+                                    </Label>
+                                    <Label text="       ">
+                                       <font>
+                                          <Font size="10.0" />
+                                       </font>
+                                    </Label>
+                                    <Label text="       ">
+                                       <font>
+                                          <Font size="10.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <HBox alignment="TOP_CENTER" layoutX="835.0" layoutY="458.0" prefHeight="263.0" prefWidth="439.0">
+                           <children>
+                              <VBox prefHeight="382.0" prefWidth="149.0">
+                                 <children>
+                                    <Label text="Min # of player">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <Label text="       " />
+                                    <Label text="Max # of player">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <Label text="       " />
+                                    <Label text="Designers">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <Label text="       " />
+                                    <Label prefHeight="27.0" prefWidth="23.0" text="       " />
+                                    <Label text="       " />
+                                 </children>
+                              </VBox>
+                              <VBox prefHeight="415.0" prefWidth="151.0">
+                                 <children>
+                                    <TextField fx:id="min" prefHeight="13.0" prefWidth="151.0">
+                                       <font>
+                                          <Font size="11.0" />
+                                       </font>
+                                    </TextField>
+                                    <Label text="       ">
+                                       <font>
+                                          <Font size="10.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="max">
+                                       <font>
+                                          <Font size="11.0" />
+                                       </font>
+                                    </TextField>
+                                    <Label text="       ">
+                                       <font>
+                                          <Font size="10.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="design">
+                                       <font>
+                                          <Font size="11.0" />
+                                       </font>
+                                    </TextField>
+                                    <Label text="       ">
+                                       <font>
+                                          <Font size="10.0" />
+                                       </font>
+                                    </Label>
+                                    <Label text="       ">
+                                       <font>
+                                          <Font size="10.0" />
+                                       </font>
+                                    </Label>
+                                    <Label text="       ">
+                                       <font>
+                                          <Font size="10.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <Label fx:id="addToyConsole" layoutX="24.0" layoutY="607.0" prefHeight="67.0" prefWidth="753.0" textFill="RED">
+                           <font>
+                              <Font size="8.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+               </content></Tab>
+            <Tab text="Remove Toy">
+               <content>
+                  <AnchorPane prefHeight="728.0" prefWidth="1250.0">
+                     <children>
+                        <ListView fx:id="removeList" layoutX="347.0" layoutY="55.0" prefHeight="581.0" prefWidth="908.0" style="-fx-background-color: white;" />
+                        <Label layoutX="21.0" layoutY="57.0" prefHeight="42.0" prefWidth="304.0" text="Enter Serial Number">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </Label>
+                        <HBox layoutX="21.0" layoutY="136.0" prefHeight="46.0" prefWidth="299.0">
+                           <children>
+                              <VBox prefHeight="382.0" prefWidth="149.0">
+                                 <children>
+                                    <Label text="Serial Number">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <Label text="       " />
+                                 </children>
+                              </VBox>
+                              <VBox prefHeight="415.0" prefWidth="151.0">
+                                 <children>
+                                    <TextField fx:id="removeNumberField" prefHeight="13.0" prefWidth="151.0" />
+                                    <Label text="       ">
+                                       <font>
+                                          <Font size="9.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" layoutX="24.0" layoutY="189.0" prefHeight="51.0" prefWidth="297.0">
+                           <children>
+                              <Button fx:id="removeBtn" mnemonicParsing="false" onAction="#remove" text="Remove" />
+                              <Label text="       ">
+                                 <font>
+                                    <Font size="2.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <Separator layoutX="21.0" layoutY="101.0" prefHeight="25.0" prefWidth="299.0" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </center>
+</BorderPane>
